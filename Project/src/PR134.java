@@ -2,26 +2,20 @@ import java.io.RandomAccessFile;
 import java.io.IOException;
 
 public class PR134 {
-    private static final int ID_SIZE = 4; // Tamaño en bytes para el número de registro (entero).
-    private static final int CHAR_SIZE = 2; // Tamaño en bytes por carácter en UTF-16.
-    private static final int NAME_SIZE = 20; // Longitud máxima en caracteres para el nombre.
-    private static final int NOTA_SIZE = 4; // Tamaño en bytes para la nota (float).
+    private static final int ID_SIZE = 4; 
+    private static final int CHAR_SIZE = 2; 
+    private static final int NAME_SIZE = 20; 
+    private static final int NOTA_SIZE = 4;
 
     public static void main(String[] args) {
         try (RandomAccessFile raf = new RandomAccessFile("Project\\data\\estudiants.dat", "rw")) {
-            // Agregar estudiantes
+
             afegirEstudiant(raf, 1, "Juan Pérez", 8.5f);
             afegirEstudiant(raf, 2, "María López", 7.2f);
-
-            // Consultar y mostrar las notas de estudiantes agregados
             mostrarEstudiant(raf, 1, "Original");
             mostrarEstudiant(raf, 2, "Original");
-
-            // Actualizar las notas de estudiantes
             actualitzarNotaEstudiant(raf, 1, 9.0f);
             actualitzarNotaEstudiant(raf, 2, 7.8f);
-
-            // Consultar y mostrar las notas actualizadas de estudiantes
             mostrarEstudiant(raf, 1, "Actualitzat");
             mostrarEstudiant(raf, 2, "Actualitzat");
 
